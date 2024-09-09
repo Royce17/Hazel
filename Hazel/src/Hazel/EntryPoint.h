@@ -2,11 +2,14 @@
 
 #ifdef HZ_PLATFORM_WINDOWS
 
-extern Hazel::Application* Hazel::CreateApplication();
+//extern Hazel::Application* Hazel::CreateApplication();
 
 int main(int argc, char** argv)
 {
-	std::print("Welcome to Hazel Engine!");
+	Hazel::Log::Init();
+	HZ_CORE_WARN("Initialized Log!");
+	auto a{ 5 };
+	HZ_CLIENT_INFO("Hello! Var={0}", a);
 
 	auto app{ Hazel::CreateApplication() };
 	app->Run();
