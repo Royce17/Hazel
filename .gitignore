@@ -36,3 +36,9 @@
 .idea/
 bin/
 bin-int/
+
+# Generated project files
+*.user
+*.filters
+*.sln
+*.vcxproj
