@@ -42,3 +42,6 @@ bin-int/
 *.filters
 *.sln
 *.vcxproj
+
+# Intellisense hint files
+*.hint

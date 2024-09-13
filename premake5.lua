@@ -4,7 +4,7 @@ workspace "Hazel"
    {
       "Debug",
       "Release",
-      "Dist"
+      "Dist",
    }
    startproject "Sandbox" --Visual Studio Only
 
@@ -26,7 +26,8 @@ project "Hazel"
 
    includedirs
    {
-      "%{prj.name}/vendor/spdlog/include"
+      "%{prj.name}/src",
+      "%{prj.name}/vendor/spdlog/include",
    }
 
    filter "system:windows"
@@ -37,7 +38,7 @@ project "Hazel"
       defines
       {
          "HZ_BUILD_DLL",
-         "HZ_PLATFORM_WINDOWS"
+         "HZ_PLATFORM_WINDOWS",
       }
 
       postbuildcommands
@@ -74,13 +75,13 @@ project "Sandbox"
 
    includedirs
    {
+      "Hazel/src",
       "Hazel/vendor/spdlog/include",
-      "Hazel/src"
    }
 
    links
    {
-      "Hazel"
+      "Hazel",
    }
 
    filter "system:windows"
@@ -90,7 +91,7 @@ project "Sandbox"
 
       defines
       {
-         "HZ_PLATFORM_WINDOWS"
+         "HZ_PLATFORM_WINDOWS",
       }
 
    filter "configurations:Debug"
