@@ -1,10 +1,7 @@
 #pragma once
 
+#include "hzpch.h"
 #include "Hazel/core.h"
-#include "spdlog/fmt/fmt.h"
-
-#include <string>
-#include <functional>
 
 namespace Hazel
 {
