@@ -10,6 +10,8 @@ workspace "Hazel"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+include "Hazel/vendor/GLFW"
+
 project "Hazel"
    location "Hazel"
    kind "SharedLib"
@@ -31,6 +33,13 @@ project "Hazel"
    {
       "%{prj.name}/src",
       "%{prj.name}/vendor/spdlog/include",
+      "%{prj.name}/vendor/GLFW/include",
+   }
+
+   links
+   {
+      "GLFW",
+      "opengl32.lib"
    }
 
    filter "system:windows"

@@ -2,19 +2,25 @@
 #include "Application.h"
 
 #include "Log.h"
-#include "Events/ApplicationEvent.h"
+#include "GLFW/glfw3.h"
 
 namespace Hazel
 {
-	Application::Application() = default;
+	Application::Application()
+	{
+		m_Window = std::unique_ptr<Window>(Window::Create());
+	}
 
 	Application::~Application() = default;
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1200,800);
-		HZ_CLIENT_TRACE(e);
+		while (m_Running)
+		{
+			glClearColor(1, 0, 0, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
 
-		while (true);
+			m_Window->OnUpdate();
+		}
 	}
 }

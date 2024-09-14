@@ -15,3 +15,6 @@
 #ifdef HZ_PLATFORM_WINDOWS
 #include <Windows.h>
 #endif
+
+// Hazel headers
+#include "Hazel/Log.h"
