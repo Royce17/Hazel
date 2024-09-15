@@ -10,11 +10,11 @@ namespace Hazel
 	struct WindowProps
 	{
 		std::string Title;
-		uint16_t Width, Height;
+		int Width, Height;
 
 		explicit WindowProps(std::string title = "Hazel Engine",
-			uint16_t const& width = 1280,
-			uint16_t const& height = 720)
+			int const& width = 1280,
+			int const& height = 720)
 			:Title(std::move(title)), Width(width), Height(height) {}
 	};
 
@@ -27,8 +27,8 @@ namespace Hazel
 		virtual ~Window() = default;
 
 		virtual void OnUpdate() = 0;
-		virtual uint16_t GetWidth() const = 0;
-		virtual uint16_t GetHeight() const = 0;
+		virtual int GetWidth() const = 0;
+		virtual int GetHeight() const = 0;
 
 		// Window attributes
 		virtual void SetEventCallback(EventCallbackFn const& callback) = 0;

@@ -18,6 +18,8 @@ namespace Hazel
 	};
 }
 
+// [学习] ::Hazel 中的前缀 :: 是一个全局作用域解析运算符（global scope resolution operator）。它用于确保对 Hazel 命名空间的访问始终从全局作用域开始，而不是从当前的命名空间或局部作用域中查找。
+
 // Core log macros
 #define HZ_CORE_TRACE(...)    ::Hazel::Log::GetCoreLogger()->trace(__VA_ARGS__)
 #define HZ_CORE_INFO(...)     ::Hazel::Log::GetCoreLogger()->info(__VA_ARGS__)

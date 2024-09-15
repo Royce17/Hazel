@@ -8,11 +8,11 @@ namespace Hazel
 	class HAZEL_API MouseMovedEvent :public Event
 	{
 	public:
-		explicit MouseMovedEvent(float const& x, float const& y)
+		explicit MouseMovedEvent(double const& x, double const& y)
 			:m_MouseX(x), m_MouseY(y) {}
 
-		float GetX() const { return m_MouseX; }
-		float GetY() const { return m_MouseY; }
+		double GetX() const { return m_MouseX; }
+		double GetY() const { return m_MouseY; }
 
 		std::string ToString() const override
 		{
@@ -24,17 +24,17 @@ namespace Hazel
 		EVENT_CLASS_TYPE(MouseMoved)
 			EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 	private:
-		float m_MouseX, m_MouseY;
+		double m_MouseX, m_MouseY;
 	};
 
 	class HAZEL_API MouseScrolledEvent :public Event
 	{
 	public:
-		explicit MouseScrolledEvent(float const& xOffset, float const& yOffset)
+		explicit MouseScrolledEvent(double const& xOffset, double const& yOffset)
 			:m_XOffset(xOffset), m_YOffset(yOffset) {}
 
-		float GetXOffset() const { return m_XOffset; }
-		float GetYOffset() const { return m_YOffset; }
+		double GetXOffset() const { return m_XOffset; }
+		double GetYOffset() const { return m_YOffset; }
 
 		std::string ToString() const override
 		{
@@ -46,27 +46,27 @@ namespace Hazel
 		EVENT_CLASS_TYPE(MouseScrolled)
 			EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 	private:
-		float m_XOffset, m_YOffset;
+		double m_XOffset, m_YOffset;
 	};
 
 	class HAZEL_API MouseButtonEvent :public Event
 	{
 	public:
-		uint8_t GetMouseButton() const { return m_Button; }
+		int GetMouseButton() const { return m_Button; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 
 	protected:
-		explicit MouseButtonEvent(uint8_t button)
+		explicit MouseButtonEvent(int button)
 			: m_Button(button) {}
 
-		uint8_t m_Button;
+		int m_Button;
 	};
 
 	class HAZEL_API MouseButtonPressedEvent :public MouseButtonEvent
 	{
 	public:
-		explicit MouseButtonPressedEvent(uint8_t const& button)
+		explicit MouseButtonPressedEvent(int const& button)
 			:MouseButtonEvent(button) {}
 
 		std::string ToString() const override
@@ -82,7 +82,7 @@ namespace Hazel
 	class HAZEL_API MouseButtonReleasedEvent :public MouseButtonEvent
 	{
 	public:
-		explicit MouseButtonReleasedEvent(uint8_t const& button)
+		explicit MouseButtonReleasedEvent(int const& button)
 			:MouseButtonEvent(button) {}
 
 		std::string ToString() const override
