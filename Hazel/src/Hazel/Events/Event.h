@@ -41,6 +41,8 @@ namespace Hazel
 	{
 		friend class EventDispatcher;
 	public:
+		bool Handled{ false };
+
 		virtual EventType GetEventType() const = 0;
 		virtual char const* GetName() const = 0;
 		virtual uint8_t GetCategoryFlags() const = 0;
@@ -50,8 +52,6 @@ namespace Hazel
 		{
 			return GetCategoryFlags() & std::to_underlying(category);
 		}
-	protected:
-		bool m_Handled{ false };
 	};
 
 	// [学习] C++20 约束
@@ -71,7 +71,7 @@ namespace Hazel
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.m_Handled = func(*static_cast<T*>(&m_Event));
+				m_Event.Handled = func(*static_cast<T*>(&m_Event));
 				return true;
 			}
 			return false;
