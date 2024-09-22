@@ -10,8 +10,9 @@ workspace "Hazel"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-include "Hazel/vendor/GLAD"
+include "Hazel/vendor/Glad"
 include "Hazel/vendor/GLFW"
+include "Hazel/vendor/imgui"
 
 project "Hazel"
    location "Hazel"
@@ -36,12 +37,14 @@ project "Hazel"
       "%{prj.name}/vendor/spdlog/include",
       "%{prj.name}/vendor/Glad/include",
       "%{prj.name}/vendor/GLFW/include",
+      "%{prj.name}/vendor/imgui/include",
    }
 
    links
    {
       "Glad",
       "GLFW",
+      "ImGui",
       "opengl32.lib"
    }
 
