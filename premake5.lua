@@ -12,8 +12,8 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 include "Hazel/vendor/Glad"
 include "Hazel/vendor/GLFW"
--- include "Hazel/vendor/imgui"
-include "Hazel/vendor/imgui-official"
+include "Hazel/vendor/imgui"
+-- include "Hazel/vendor/imgui-official"
 
 project "Hazel"
    location "Hazel"
@@ -38,8 +38,8 @@ project "Hazel"
       "%{prj.name}/vendor/spdlog/include",
       "%{prj.name}/vendor/Glad/include",
       "%{prj.name}/vendor/GLFW/include",
-      -- "%{prj.name}/vendor/imgui/include",
-      "%{prj.name}/vendor/imgui-official",
+      "%{prj.name}/vendor/imgui",
+      -- "%{prj.name}/vendor/imgui-official",
    }
 
    links
